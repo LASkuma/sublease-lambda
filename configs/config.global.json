@@ -1,0 +1,6 @@
+{
+  "AWS_REGION": "us-east-1",
+  "RESOURCE_NAMES": {
+    "PostTable": "posts"
+  }
+}
