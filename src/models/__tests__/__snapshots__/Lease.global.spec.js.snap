@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lease Model should fail Validation 1`] = `"child \\"address\\" fails because [\\"address\\" is required]"`;
+
+exports[`Lease Model should return Lease object when validation is passed 1`] = `
+Lease {
+  "address": "808 Columbus Ave",
+  "bathrooms": 1,
+  "bedrooms": 3,
+  "city": "New York",
+  "description": "Very nice room",
+  "from": 2018-05-01T00:00:00.000Z,
+  "price": 1300,
+  "state": "New York",
+  "type": "Bedroom",
+}
+`;
