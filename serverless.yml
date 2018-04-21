@@ -17,7 +17,7 @@ provider:
 custom:
   # Setup serverless plugins
   webpack:
-    webpackConfig: ./configs/webpack/${ self:custom.ENV_CONFIG.webpack }.config.js
+    webpackConfig: ./configs/webpack/${ self:provider.stage }.config.js
     includeModules: true
   serverless-offline:
     port: 3000
