@@ -27,10 +27,9 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.7.0",
     "jest": "^22.4.3",
     "serverless-offline": "^3.20.1",
-    "serverless-step-functions": "^1.4.0",
     "serverless-webpack": "^4.3.0",
     "webpack": "^3.11.0",
     "webpack-node-externals": "^1.6.0"
