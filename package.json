@@ -1,28 +1,47 @@
 {
   "name": "sublease-lambda",
-  "version": "0.0.1",
-  "description": "Sublease platform",
+  "version": "0.1.0",
+  "description": "Sublease backend as lambda functions",
   "main": "index.js",
   "repository": "git@github.com:LASkuma/sublease-lambda.git",
-  "author": "LASkuma <jimmyx@me.com>",
+  "author": "LASkuma<jimmyx@me.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "NODE_ENV=development sls offline start",
-    "lint": "eslint src"
+    "serve": "sls offline start",
+    "lint": "eslint src",
+    "ddb:start": "java -jar test_utils/DynamoDBLocal/DynamoDBLocal.jar -inMemory"
+  },
+  "dependencies": {
+    "apollo-server-lambda": "1.3.2",
+    "graphql": "0.11.3",
+    "graphql-tools": "^2.21.0",
+    "jsonwebtoken": "^8.1.1",
+    "jwk-to-pem": "^1.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "eslint": "^4.19.1",
+    "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "jest": "^22.4.3",
-    "serverless-offline": "^3.20.3",
-    "serverless-webpack": "^5.1.1",
-    "webpack": "^4.6.0",
-    "webpack-node-externals": "^1.7.2"
+    "serverless-offline": "^3.20.1",
+    "serverless-step-functions": "^1.4.0",
+    "serverless-webpack": "^4.3.0",
+    "webpack": "^3.11.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "src/apollo"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
   }
 }

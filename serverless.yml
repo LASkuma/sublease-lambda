@@ -9,36 +9,46 @@ provider:
   runtime: nodejs8.10
 
   stage: ${ opt:stage, 'development'}
-  region: ${ self:custom.GLOBAL_CONFIG.AWS_REGION }
-  
+  region: ${ self:custom.globalConfig.aws_region }
+
   environment:
     NODE_ENV: ${ self:provider.stage }
 
 custom:
   # Setup serverless plugins
-  webpack:
-    webpackConfig: ./configs/webpack/${ self:provider.stage }.config.js
-    includeModules: true
+  webpackIncludeModules: true
   serverless-offline:
     port: 3000
     babelOptions:
       plugins: ["transform-es2015-modules-commonjs", "transform-object-rest-spread"]
   
   # Define configs
-  GLOBAL_CONFIG: ${ file(./configs/config.global.json) }
-  ENV_CONFIG: ${ file(./configs/config.env.json):${ self:provider.stage } }
+  globalConfig: ${ file(./configs/config.global.json) }
+  envConfig: ${ file(./configs/config.env.json):${ self:provider.stage } }
 
 functions:
-  hello:
-    handler: handler.hello
+  GraphQL:
+    handler: handler.graphqlHandler
     events:
       - http:
-          path: hello
+          path: graphql
+          method: GET
+          cors: true
+      - http: 
+          path: graphql
+          method: POST
+          cors: true
+  
+  GraphiQL:
+    handler: handler.graphiqlHandler
+    events:
+      - http:
+          path: graphiql
           method: GET
 
 resources:
   Resources:
-    PostTable:
+    LeaseTable:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
@@ -52,4 +62,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
-        TableName: ${ self:provider.stage }-${ self:custom.GLOBAL_CONFIG.RESOURCE_NAMES.PostTable }
+        TableName: ${ self:provider.stage }-${ self:custom.globalConfig.resource_names.LeaseTable }

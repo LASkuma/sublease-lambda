@@ -1,13 +1,19 @@
 /* eslint-disable import/prefer-default-export */
+import * as server from 'apollo-server-lambda';
 
-export const hello = async (event) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
+import eventHandler from './src/apollo/eventHandler';
+
+export const graphqlHandler = (event, context, callback) => {
+  const callbackFilter = (error, output) => {
+    // eslint-disable-next-line no-param-reassign
+    output.headers['Access-Control-Allow-Origin'] = '*';
+    callback(error, output);
   };
+  const handler = server.graphqlLambda(eventHandler);
 
-  return response;
+  return handler(event, context, callbackFilter);
 };
+
+export const graphiqlHandler = server.graphiqlLambda({
+  endpointURL: 'graphql',
+});
