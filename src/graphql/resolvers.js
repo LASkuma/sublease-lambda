@@ -21,6 +21,7 @@ export default {
 
   Query: {
     posts: () => Post.readAll(),
+    postById: (root, args) => Post.readById(args.id),
   },
 
   Mutation: {

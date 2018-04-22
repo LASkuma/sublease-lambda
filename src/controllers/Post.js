@@ -35,4 +35,12 @@ export default class Post {
       throw ServerError.ErrorBuilder(500, err);
     }
   }
+
+  static async readById(id) {
+    try {
+      return await posts.readById(id);
+    } catch (err) {
+      throw ServerError.ErrorBuilder(500, err);
+    }
+  }
 }

@@ -30,6 +30,7 @@ type Post {
 
 type Query {
   posts: [Post]!
+  postById(id: ID!): Post
 }
 
 input LeaseInput {
