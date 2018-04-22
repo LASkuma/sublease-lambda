@@ -8,6 +8,10 @@ export default class Post {
   static async create(leaseInput, { id }) {
     try {
       const lease = await LeaseFactory.create(leaseInput);
+
+      lease.from = lease.from.getTime();
+      lease.to = lease.to.getTime();
+
       const post = {
         id: uuid(),
         createdAt: Date.now(),
