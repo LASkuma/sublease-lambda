@@ -63,3 +63,9 @@ resources:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
         TableName: ${ self:provider.stage }-${ self:custom.globalConfig.ResourceNames.PostTable }
+    
+    PostImagePool:
+      Type: AWS::S3::Bucket
+      Properties:
+        AccessControl: PublicRead
+        BucketName: ${ self:provider.stage }-${ self:custom.globalConfig.ResourceNames.PostImagePool }

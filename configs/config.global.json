@@ -1,6 +1,7 @@
 {
   "AwsRegion": "us-east-1",
   "ResourceNames": {
-    "PostTable": "posts"
+    "PostTable": "posts",
+    "PostImagePool": "post-images"
   }
 }
