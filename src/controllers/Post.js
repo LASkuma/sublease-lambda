@@ -27,4 +27,12 @@ export default class Post {
       throw ServerError.ErrorBuilder(500, err);
     }
   }
+
+  static async readAll() {
+    try {
+      return await posts.readAll();
+    } catch (err) {
+      throw ServerError.ErrorBuilder(500, err);
+    }
+  }
 }

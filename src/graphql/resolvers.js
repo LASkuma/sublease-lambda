@@ -20,7 +20,7 @@ export default {
   }),
 
   Query: {
-    helloWorld: () => Date.now(),
+    posts: () => Post.readAll(),
   },
 
   Mutation: {

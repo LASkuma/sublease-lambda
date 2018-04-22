@@ -29,7 +29,7 @@ type Post {
 }
 
 type Query {
-  helloWorld: Date
+  posts: [Post]!
 }
 
 input LeaseInput {
