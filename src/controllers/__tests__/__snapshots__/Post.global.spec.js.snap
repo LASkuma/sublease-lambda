@@ -6,6 +6,6 @@ Object {
   "id": 1,
   "status": "Active",
   "updatedAt": 100000,
-  "user": 1,
+  "user": 101,
 }
 `;

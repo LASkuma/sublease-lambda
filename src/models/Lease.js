@@ -84,6 +84,12 @@ const schema = Joi.object().keys({
   type: Joi.string()
     .valid(['Bedroom', 'Livingroom'])
     .required(),
+  pictureId: Joi.string().required(),
+  pictureNumber: Joi.number()
+    .integer()
+    .min(1)
+    .max(9)
+    .required(),
 });
 
 class Lease {

@@ -21,6 +21,8 @@ describe('Lease Model', () => {
       bedrooms: 3,
       bathrooms: 1,
       type: 'Bedroom',
+      pictureId: '1',
+      pictureNumber: 5,
     });
 
     expect(result).toBeInstanceOf(Lease);

@@ -10,6 +10,8 @@ Lease {
   "city": "New York",
   "description": "Very nice room",
   "from": 2018-05-01T00:00:00.000Z,
+  "pictureId": "1",
+  "pictureNumber": 5,
   "price": 1300,
   "state": "New York",
   "type": "Bedroom",

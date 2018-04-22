@@ -20,6 +20,8 @@ type Post {
   to: Date
   bedrooms: Int!
   bathrooms: Int
+  pictureId: String!
+  pictureNumber: Int!
   type: String!
   status: PostStatus!
   updatedAt: Date!
