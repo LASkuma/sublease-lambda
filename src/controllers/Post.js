@@ -2,6 +2,7 @@ import uuid from 'uuid-random';
 
 import LeaseFactory from '../models/Lease';
 import ServerError from '../utils/ServerError';
+import * as posts from '../connectors/posts';
 
 export default class Post {
   static async create(leaseInput, { id }) {
@@ -15,6 +16,8 @@ export default class Post {
         status: 'Active',
         ...lease,
       };
+
+      await posts.create(post);
       return post;
     } catch (err) {
       throw ServerError.ErrorBuilder(500, err);

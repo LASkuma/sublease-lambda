@@ -5,7 +5,7 @@ import config from '../../config';
 
 import ServerError from '../utils/ServerError';
 
-const cognito = new AWS.CognitoIdentityServiceProvider({ region: globalConfig.aws_region });
+const cognito = new AWS.CognitoIdentityServiceProvider({ region: globalConfig.AwsRegion });
 
 export default class User {
   static async create(email) {

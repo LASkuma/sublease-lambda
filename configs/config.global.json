@@ -1,6 +1,6 @@
 {
-  "aws_region": "us-east-1",
-  "resource_names": {
+  "AwsRegion": "us-east-1",
+  "ResourceNames": {
     "PostTable": "posts"
   }
 }

@@ -9,7 +9,7 @@ provider:
   runtime: nodejs8.10
 
   stage: ${ opt:stage, 'development'}
-  region: ${ self:custom.globalConfig.aws_region }
+  region: ${ self:custom.globalConfig.AwsRegion }
 
   environment:
     NODE_ENV: ${ self:provider.stage }
@@ -62,4 +62,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
-        TableName: ${ self:provider.stage }-${ self:custom.globalConfig.resource_names.PostTable }
+        TableName: ${ self:provider.stage }-${ self:custom.globalConfig.ResourceNames.PostTable }
