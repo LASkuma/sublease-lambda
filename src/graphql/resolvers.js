@@ -1,6 +1,7 @@
 import { GraphQLScalarType } from 'graphql';
 
 import Post from '../controllers/Post';
+import User from '../controllers/User';
 
 export default {
   Date: new GraphQLScalarType({
@@ -23,5 +24,6 @@ export default {
 
   Mutation: {
     createPost: (root, args, context) => Post.create(args.lease, context.user),
+    register: (root, args) => User.create(args.email),
   },
 };

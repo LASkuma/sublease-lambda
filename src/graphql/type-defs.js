@@ -46,6 +46,7 @@ input LeaseInput {
 
 type Mutation {
   createPost(lease: LeaseInput!): Post!
+  register(email: String!): String!
 }
 `,
 ];
