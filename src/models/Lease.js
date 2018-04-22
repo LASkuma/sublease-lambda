@@ -82,7 +82,7 @@ const schema = Joi.object().keys({
     .min(1)
     .optional(),
   type: Joi.string()
-    .valid(['Bedroom', 'Livingroom'])
+    .valid(['Bedroom', 'Living Room'])
     .required(),
   pictureId: Joi.string().required(),
   pictureNumber: Joi.number()

@@ -43,6 +43,8 @@ input LeaseInput {
   to: Date
   bedrooms: Int!
   bathrooms: Int
+  pictureId: String!
+  pictureNumber: Int!
   type: String!
 }
 
