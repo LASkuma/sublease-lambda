@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post controller should insert id, user, createdAt, status, etc. 1`] = `
+Object {
+  "createdAt": 100000,
+  "id": 1,
+  "status": "Active",
+  "updatedAt": 100000,
+  "user": 1,
+}
+`;

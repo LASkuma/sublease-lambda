@@ -48,7 +48,7 @@ functions:
 
 resources:
   Resources:
-    LeaseTable:
+    PostTable:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
@@ -62,4 +62,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
-        TableName: ${ self:provider.stage }-${ self:custom.globalConfig.resource_names.LeaseTable }
+        TableName: ${ self:provider.stage }-${ self:custom.globalConfig.resource_names.PostTable }

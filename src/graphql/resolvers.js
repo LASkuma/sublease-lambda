@@ -1,5 +1,7 @@
 import { GraphQLScalarType } from 'graphql';
 
+import Post from '../controllers/Post';
+
 export default {
   Date: new GraphQLScalarType({
     name: 'Date',
@@ -17,5 +19,9 @@ export default {
 
   Query: {
     helloWorld: () => Date.now(),
+  },
+
+  Mutation: {
+    createPost: (root, args, context) => Post.create(args.lease, context.user),
   },
 };

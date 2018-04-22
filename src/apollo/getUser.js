@@ -3,7 +3,7 @@ import jwkToPem from 'jwk-to-pem';
 
 import config from '../../config';
 
-const iss = `https://cognito-idp.${config.USER_POOL_REGION}.amazonaws.com/${config.USER_POOL}`;
+const iss = `https://cognito-idp.${config.UserPoolRegion}.amazonaws.com/${config.UserPool}`;
 
 export default function getUser(token) {
   return new Promise((resolve) => {
