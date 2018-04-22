@@ -13,7 +13,3 @@ export const graphqlHandler = (event, context, callback) => {
 
   return handler(event, context, callbackFilter);
 };
-
-export const graphiqlHandler = server.graphiqlLambda({
-  endpointURL: 'graphql',
-});

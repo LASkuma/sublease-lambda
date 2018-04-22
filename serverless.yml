@@ -38,13 +38,6 @@ functions:
           path: graphql
           method: POST
           cors: true
-  
-  GraphiQL:
-    handler: handler.graphiqlHandler
-    events:
-      - http:
-          path: graphiql
-          method: GET
 
 resources:
   Resources:
