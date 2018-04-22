@@ -10,6 +10,26 @@ provider:
 
   stage: ${ opt:stage, 'development'}
   region: ${ self:custom.globalConfig.AwsRegion }
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:BatchGetItem
+      Resource:
+        - "Fn::GetAtt":
+          - PostTable
+          - Arn
+
+    - Effect: Allow
+      Action:
+        - cognito-idp:AdminCreateUser
+      Resource:
+        ${ self:custom.envConfig.arns.UserPool }
 
   environment:
     NODE_ENV: ${ self:provider.stage }
