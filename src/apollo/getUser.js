@@ -34,9 +34,9 @@ export default function getUser(token) {
         return;
       }
 
-      console.log(result);
-
-      resolve(result);
+      resolve({
+        id: result.sub,
+      });
     });
   });
 }

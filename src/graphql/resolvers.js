@@ -1,5 +1,6 @@
 import { GraphQLScalarType } from 'graphql';
 
+import secure from '../utils/secure';
 import Post from '../controllers/Post';
 import User from '../controllers/User';
 
@@ -23,7 +24,7 @@ export default {
   },
 
   Mutation: {
-    createPost: (root, args, context) => Post.create(args.lease, context.user),
+    createPost: secure((root, args, context) => Post.create(args.lease, context.user)),
     register: (root, args) => User.create(args.email),
   },
 };
