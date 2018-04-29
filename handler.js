@@ -13,3 +13,6 @@ export const graphqlHandler = (event, context, callback) => {
 
   return handler(event, context, callbackFilter);
 };
+
+export { default as preRenderHandler } from './src/functions/preRender';
+export { default as savePageHandler } from './src/functions/savePage';

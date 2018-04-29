@@ -20,7 +20,10 @@
     "joi": "^13.2.0",
     "jsonwebtoken": "^8.1.1",
     "jwk-to-pem": "^1.2.6",
-    "uuid-random": "^1.0.6"
+    "moment": "^2.22.1",
+    "uuid-random": "^1.0.6",
+    "vue": "^2.5.16",
+    "vue-server-renderer": "^2.5.16"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

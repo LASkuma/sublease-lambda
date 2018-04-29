@@ -30,6 +30,13 @@ provider:
         - cognito-idp:AdminCreateUser
       Resource:
         ${ self:custom.envConfig.arns.UserPool }
+        
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:PutObjectAcl
+      Resource:
+        - arn:aws:s3:::${ self:custom.envConfig.AppBucket }/*
 
   environment:
     NODE_ENV: ${ self:provider.stage }
@@ -58,6 +65,12 @@ functions:
           path: graphql
           method: POST
           cors: true
+
+  PreRender:
+    handler: handler.preRenderHandler
+
+  SavePage:
+    handler: handler.savePageHandler
 
 resources:
   Resources:
