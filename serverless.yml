@@ -1,6 +1,7 @@
 service: sublease-lambda
 
 plugins:
+  - serverless-step-functions
   - serverless-webpack
   - serverless-offline
 
@@ -71,6 +72,25 @@ functions:
 
   SavePage:
     handler: handler.savePageHandler
+  
+stepFunctions:
+  stateMachines:
+    checkout:
+      name: ${ self:provider.stage }-publish
+      definition:
+        Comment: Prerender post into static html and save on s3
+        StartAt: PreRender
+        States:
+          PreRender:
+            Type: Task
+            Resource: arn:aws:lambda:us-east-1:336626025201:function:${ self:service }-${ self:provider.stage }-PreRender
+            Next: SavePage
+            ResultPath: "$.html"
+            OutputPath: "$"
+          SavePage:
+            Type: Task
+            Resource: arn:aws:lambda:us-east-1:336626025201:function:${ self:service }-${ self:provider.stage }-SavePage
+            End: true
 
 resources:
   Resources:

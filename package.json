@@ -36,6 +36,7 @@
     "eslint-plugin-import": "^2.7.0",
     "jest": "^22.4.3",
     "serverless-offline": "^3.20.1",
+    "serverless-step-functions": "^1.4.1",
     "serverless-webpack": "^4.3.0",
     "webpack": "^3.11.0",
     "webpack-node-externals": "^1.6.0"
