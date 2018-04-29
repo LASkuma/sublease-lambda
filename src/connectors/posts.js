@@ -1,5 +1,17 @@
+import AWS from 'aws-sdk';
+
 import globalConfig from '../../configs/config.global.json';
 import { db, getTableName } from '../utils/db';
+
+const stepFunctions = new AWS.StepFunctions({ region: 'us-east-1' });
+
+const getStateMachineArn = (name) => {
+  let env = process.env.NODE_ENV;
+  if (env === 'development') {
+    env = 'beta';
+  }
+  return `arn:aws:states:us-east-1:336626025201:stateMachine:${env}-${name}`;
+};
 
 const TableName = getTableName(globalConfig.ResourceNames.PostTable);
 
@@ -16,3 +28,11 @@ export const readById = async (id) => {
   const result = await db.get({ TableName, Key: { id } }).promise();
   return result.Item;
 };
+
+export const publish = post =>
+  stepFunctions
+    .startExecution({
+      stateMachineArn: getStateMachineArn('publish'),
+      input: JSON.stringify({ post }),
+    })
+    .promise();

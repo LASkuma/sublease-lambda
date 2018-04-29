@@ -21,7 +21,7 @@ export default class Post {
         ...lease,
       };
 
-      await posts.create(post);
+      await Promise.all([posts.create(post), posts.publish(post)]);
       return post;
     } catch (err) {
       throw ServerError.ErrorBuilder(500, err);
