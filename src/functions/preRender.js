@@ -53,13 +53,14 @@ const template = `
       <p>
         {{ post.description }}
       </p>
-      <mt-button
-        type="default"
-        size="large"
-        @click.native="$router.push('/')"
-      >
-        See more Listings
-      </mt-button>
+      <a href="/">
+        <mt-button
+          type="default"
+          size="large"
+        >
+          See more Listings
+        </mt-button>
+      </a>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
